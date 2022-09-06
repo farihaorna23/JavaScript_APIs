@@ -7,7 +7,7 @@ const GIPHY_URL = "https://api.giphy.com/v1/gifs/translate";
 
 let searchBtn = document.getElementById("submitSearch");
 let searchInput = document.getElementById("searchWord");
-let image = document.getElementById("imageContainer");
+let image = document.getElementById("image");
 let paragraph = document.querySelector("p");
 
 //console.log(searchBtn, searchInput, image, paragraph);
@@ -19,8 +19,10 @@ searchBtn.addEventListener("click", () => {
       console.log(response);
       return response.json();
     })
-    .then(data => {
-      console.log(data);
+    .then(result => {
+      image.src = result.data.images.original.url;
+      console.log(image);
+      searchInput.value = "";
     })
     .catch(error => console.error(error));
 });
