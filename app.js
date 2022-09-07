@@ -24,5 +24,8 @@ searchBtn.addEventListener("click", () => {
       console.log(image);
       searchInput.value = "";
     })
-    .catch(error => console.error(error));
+    .catch(error => {
+      console.error(error);
+      paragraph.textContent = error.message;
+    });
 });
